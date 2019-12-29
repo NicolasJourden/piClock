@@ -1,0 +1,19 @@
+#!/bin/sh
+
+case "$1" in
+	start)
+                /sbin/killradio &
+		;;
+	stop)
+		killall killradio
+		;;
+	restart)
+		$0 stop
+		sleep 1
+		$0 start
+		;;
+	*)
+		echo "usage: $0 {start|stop|restart}"
+		;;
+esac
+

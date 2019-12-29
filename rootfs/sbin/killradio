@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Configure:
+echo 22 > /sys/class/gpio/export 
+echo in > /sys/class/gpio/gpio22/direction 
+
+# Loop:
+while true; do
+    val=$(cat /sys/class/gpio/gpio22/value)
+    if [ $val -gt 0 ]; then
+      if [ $val -ge $last ]; then
+        #echo "Killing it!"
+        killall mplayer
+      fi
+    fi
+    last=$val
+done
+
