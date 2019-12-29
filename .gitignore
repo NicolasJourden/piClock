@@ -1,0 +1,11 @@
+*~
+
+# Buildroot:
+buildroot
+radios
+
+# Wifi config:
+wpa_supplicant.conf
+
+# Ical setting:
+ical.conf
